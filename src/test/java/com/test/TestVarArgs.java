@@ -18,6 +18,9 @@ public class TestVarArgs {
 	 */
 	public static class MyObject {
 		public String execute(String name, Function<Integer, String> func, Object ...args) {
+			Assertions.assertNotNull(func);
+			Assertions.assertEquals(3, args.length);
+
 			return func.apply(1);
 		}
 	}
@@ -34,10 +37,9 @@ public class TestVarArgs {
 		public String execute(String name, Function<Integer, String> func, Object ...args) {
 			Assertions.assertNotNull(func);
 			Assertions.assertEquals(3, args.length);
-			return "";
+			return func.apply(1);
 		}
 	}
-
 
 	/**
 	 *
